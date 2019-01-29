@@ -8,6 +8,14 @@ const SETTING = 'exposure_absolute';
 const MIN_VALUE = 5;
 const MAX_VALUE = 20000;
 
+router.get("/min_value", function(req, res) {
+    res.json({ min: MIN_VALUE });
+});
+
+router.get("/max_value", function(req, res) {
+    res.json({ max: MAX_VALUE });
+});
+
 router.post("/:deviceId/:value", function(req, res) {
     let deviceId = req.params.deviceId;
     let value = parseInt(req.params.value);
