@@ -14,7 +14,7 @@ router.post("/:deviceId/:value", function(req, res) {
     let value = parseInt(req.params.value);
 
     let device = devicePrefix + deviceId;
-    v4l2ctl.setControl(device + deviceId, SETTING, normalizeValue(value, MIN_VALUE, MAX_VALUE))
+    v4l2ctl.setControl(device, SETTING, normalizeValue(value, MIN_VALUE, MAX_VALUE))
         .then(() => {
             v4l2ctl.getControl(device, SETTING)
                 .then(control => res.json(control))
@@ -25,7 +25,7 @@ router.post("/:deviceId/:value", function(req, res) {
 
 router.get("/:deviceId", function(req, res) {
     let deviceId = req.params.deviceId;
-    
+
     v4l2ctl.getControl(devicePrefix + deviceId, SETTING)
         .then(control => res.json(control))
         .catch(error => res.status(500).json(error));
