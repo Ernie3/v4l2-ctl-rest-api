@@ -1,5 +1,5 @@
 # v4l2-ctl-rest-api
-RESTful API to control USB camera settings via v4l2-ctl
+RESTful API to control USB camera settings via v4l2-ctl.
 
 ## Installing
 1. `git clone https://github.com/Ernie3/v4l2-ctl-rest-api.git`
@@ -17,3 +17,6 @@ All endpoints follow the structure `GET /{setting}/{deviceId}` or `POST /{settin
 4. sharpness
 5. exposure_absolute
 6. exposure_auto
+
+## Example
+If you have a USB device connected to /dev/video0, you can get its current brightness via `GET /brightness/0`, or set its brightness via `POST /brightness/0/130`.
