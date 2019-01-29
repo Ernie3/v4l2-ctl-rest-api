@@ -1,0 +1,27 @@
+{
+  "name": "v4l2-ctl-rest-service",
+  "version": "1.0.0",
+  "description": "RESTful service to control USB cameras via v4l2-ctl",
+  "author": "Ernie3",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node ./src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/Ernie3/v4l2-ctl-rest-service.git",
+    "type": "git"
+  },
+  "bugs": {
+    "email": "ernestgwilsoniii@gmail.com",
+    "url": "https://github.com/Ernie3/v4l2-ctl-rest-service/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
+  }
+}
