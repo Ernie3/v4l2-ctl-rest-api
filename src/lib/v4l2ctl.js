@@ -1,9 +1,9 @@
 const execute = require("./execute");
 const controlValueParser = require('./controlValueParser');
 
-function getControl(device, control) {
+function getControl(deviceId, control) {
     return new Promise((resolve, reject) => {
-        execute('v4l2-ctl -d ' + device + ' --get-ctrl ' + control)
+        execute('v4l2-ctl -d /dev/video' + deviceId + ' --get-ctrl ' + control)
             .then(output => {
                 if(output.stderr) {
                     return reject(data.stderr);
@@ -20,9 +20,9 @@ function getControl(device, control) {
     });
 }
 
-function setControl(device, control, value) {
+function setControl(deviceId, control, value) {
     return new Promise((resolve, reject) => {
-        return execute('v4l2-ctl -d ' + device + ' --set-ctrl=' + control + '=' + value)
+        return execute('v4l2-ctl -d /dev/video' + deviceId + ' --set-ctrl=' + control + '=' + value)
             .then(output => {
                 if(output.stderr) {
                     return reject(data.stderr);
