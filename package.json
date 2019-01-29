@@ -1,7 +1,7 @@
 {
-  "name": "v4l2-ctl-rest-service",
+  "name": "v4l2-ctl-rest-api",
   "version": "1.0.0",
-  "description": "RESTful service to control USB cameras via v4l2-ctl",
+  "description": "RESTful API to control USB camera settings via v4l2-ctl",
   "author": "Ernie3",
   "main": "src/app.js",
   "scripts": {

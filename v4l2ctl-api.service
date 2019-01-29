@@ -1,0 +1,14 @@
+[Unit]
+Description=V4L2-CTL API
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node /home/pi/v4l2-ctl-rest-api/src/app.js
+WorkingDirectory=/home/pi/v4l2-ctl-rest-api
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target

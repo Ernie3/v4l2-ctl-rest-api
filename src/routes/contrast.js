@@ -9,11 +9,12 @@ const SETTING = 'contrast';
 const MIN_VALUE = 0;
 const MAX_VALUE = 10;
 
-router.post("/", function(req, res) {
-    let device = req.body.device;
-    let value = parseInt(req.body.value);
+router.post("/:deviceId/:value", function(req, res) {
+    let deviceId = req.params.deviceId;
+    let value = parseInt(req.params.value);
 
-    v4l2ctl.setControl(device, SETTING, normalizeValue(value, MIN_VALUE, MAX_VALUE))
+    let device = devicePrefix + deviceId;
+    v4l2ctl.setControl(device + deviceId, SETTING, normalizeValue(value, MIN_VALUE, MAX_VALUE))
         .then(() => {
             v4l2ctl.getControl(device, SETTING)
                 .then(control => res.json(control))
