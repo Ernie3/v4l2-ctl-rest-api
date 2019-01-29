@@ -19,4 +19,4 @@ All endpoints follow the structure `GET /{setting}/{deviceId}` or `POST /{settin
 6. exposure_auto
 
 ## Example
-If you have a USB device connected to /dev/video0, you can get its current brightness via `GET /brightness/0`, or set its brightness via `POST /brightness/0/130`.
+If you have a USB device connected to `/dev/video0`, you can get its current brightness via `GET /brightness/0`, or set its brightness via `POST /brightness/0/130`.
