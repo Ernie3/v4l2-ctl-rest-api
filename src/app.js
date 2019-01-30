@@ -14,6 +14,9 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // Routes
+const index = require('./routes/index');
+app.use('/', index);
+
 const brightness = require('./routes/brightness');
 app.use('/brightness', brightness);
 
