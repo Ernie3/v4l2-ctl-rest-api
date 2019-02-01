@@ -39,7 +39,10 @@ function setControl(deviceId, control, value) {
                     return reject(data.stderr);
                 }
 
-                return resolve(null);
+                return resolve({
+                    setting: control,
+                    value: value
+                });
             })
             .catch(error => reject(error));
     });
