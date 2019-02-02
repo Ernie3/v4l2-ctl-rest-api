@@ -44,5 +44,5 @@ app.use(function(err, req, res, next) {
 const listener = app.listen(config.port, function() {
     console.log("Listening on +:" + listener.address().port);
 });
-  
+
 module.exports = app;

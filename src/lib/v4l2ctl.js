@@ -10,7 +10,7 @@ const getCtrlParser = require('./getCtrlParser');
  */
 function getControl(deviceId, control) {
     return new Promise((resolve, reject) => {
-        execute('v4l2-ctl -d /dev/video' + deviceId + ' --get-ctrl ' + control)
+        execute(`v4l2-ctl -d /dev/video${deviceId} --get-ctrl ${control}`)
             .then(output => {
                 if(output.stderr) {
                     return reject(data.stderr);
@@ -33,7 +33,7 @@ function getControl(deviceId, control) {
  */
 function setControl(deviceId, control, value) {
     return new Promise((resolve, reject) => {
-        return execute('v4l2-ctl -d /dev/video' + deviceId + ' --set-ctrl=' + control + '=' + value)
+        return execute(`v4l2-ctl -d /dev/video${deviceId} --set-ctrl=${control}=${value}`)
             .then(output => {
                 if(output.stderr) {
                     return reject(data.stderr);

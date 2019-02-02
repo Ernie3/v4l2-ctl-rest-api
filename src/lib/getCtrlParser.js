@@ -4,12 +4,11 @@
  * @reutrn the parsed control with the setting name and value
  */
 function parseControl(raw) {
-    if(raw === null || raw === "") {
-        return [];
+    if(raw === null || raw === undefined) {
+        return null;
     }
 
     var parsed = [];
-
     var splitRaw = raw.split(':');
     for(var split of splitRaw) {
         parsed.push(split.replace(/\s/g, ""));
