@@ -13,3 +13,5 @@ const SETTINGS = [
 router.get('/', function(req, res) {
     return res.json(SETTINGS);
 });
+
+module.exports = router;
