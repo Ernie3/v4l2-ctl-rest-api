@@ -17,6 +17,9 @@ app.use(bodyParser.json());
 const index = require('./routes/index');
 app.use('/', index);
 
+const settings = require('./routes/settings');
+app.use('/settings', settings);
+
 const brightness = require('./routes/brightness');
 app.use('/brightness', brightness);
 
