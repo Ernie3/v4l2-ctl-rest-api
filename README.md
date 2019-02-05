@@ -11,12 +11,7 @@ RESTful API to control USB camera settings via v4l2-ctl.
 All endpoints follow the structure `GET /{setting}/{deviceId}` or `POST /{setting}/{deviceId}/{value}`. You can also get the maximum and minimum values of a setting via `GET /{setting}/max_value` or `GET /{setting}/min_value`.
 
 ## Currently Supported Setting Controls
-1. brightness
-2. contrast
-3. saturation
-4. sharpness
-5. exposure_absolute
-6. exposure_auto
+You can get the currently supported settings using `GET /settings`. This will return all of the supported settings as an array of strings.
 
 ## Example
 If you have a USB device connected to `/dev/video0`, you can get its current brightness via `GET /brightness/0`, or set its brightness via `POST /brightness/0/130`.
