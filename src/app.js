@@ -17,6 +17,9 @@ app.use(bodyParser.json());
 const index = require('./routes/index');
 app.use('/', index);
 
+const shutdown = require('./routes/shutdown');
+app.use('/shutdown', shutdown);
+
 const settings = require('./routes/settings');
 app.use('/settings', settings);
 
