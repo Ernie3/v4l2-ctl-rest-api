@@ -15,3 +15,7 @@ You can get the currently supported settings using `GET /settings`. This will re
 
 ## Example
 If you have a USB device connected to `/dev/video0`, you can get its current brightness via `GET /brightness/0`, or set its brightness via `POST /brightness/0/130`.
+
+## See Also
+1. [Installing Node.js on a Raspberry Pi](https://github.com/Ernie3/pi_h264#help-installing-nodejs-v10-on-the-pi)
+2. [pi_h264](https://github.com/Ernie3/pi_h264)
