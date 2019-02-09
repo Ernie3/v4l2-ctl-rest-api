@@ -16,6 +16,18 @@ You can get the currently supported settings using `GET /settings`. This will re
 ## Example
 If you have a USB device connected to `/dev/video0`, you can get its current brightness via `GET /brightness/0`, or set its brightness via `POST /brightness/0/130`.
 
+## Setting up v4l2-ctl-rest-api to Run on Boot
+```
+./service_manager.sh argument
+
+install - installs v4l2-ctl-rest-api service and enables start on boot
+start - starts v4l2-ctl-rest-api via systemctl (service must be installed)
+stop - stops v4l2-ctl-rest-api via systemctl (service must be installed)
+enable - enables v4l2-ctl-rest-api to start on boot (service must be installed)
+disable - disables v4l2-ctl-rest-api from starting on boot (service must be installed)
+uninstall - completely removes v4l2-ctl-rest-api service from systemctl
+```
+
 ## See Also
 1. [Installing Node.js on a Raspberry Pi](https://github.com/Ernie3/pi_h264#help-installing-nodejs-v10-on-the-pi)
 2. [pi_h264](https://github.com/Ernie3/pi_h264)
