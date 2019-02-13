@@ -16,19 +16,19 @@ router.get("/max_value", function(req, res) {
     res.json({ max: MAX_VALUE });
 });
 
-router.post("/:devicePath/:value", function(req, res) {
-    let devicePath = req.params.devicePath;
+router.post("/:deviceId/:value", function(req, res) {
+    let deviceId = req.params.deviceId;
     let value = parseInt(req.params.value);
 
-    v4l2ctl.setControl(devicePath, SETTING, normalizeValue(value, MIN_VALUE, MAX_VALUE))
+    v4l2ctl.setControl(deviceId, SETTING, normalizeValue(value, MIN_VALUE, MAX_VALUE))
         .then(control => res.json(control))
         .catch(error => res.status(500).json(error));
 });
 
-router.get("/:devicePath", function(req, res) {
-    let devicePath = req.params.devicePath;
+router.get("/:deviceId", function(req, res) {
+    let deviceId = req.params.deviceId;
 
-    v4l2ctl.getControl(devicePath, SETTING)
+    v4l2ctl.getControl(deviceId, SETTING)
         .then(control => res.json(control))
         .catch(error => res.status(500).json(error));
 });
