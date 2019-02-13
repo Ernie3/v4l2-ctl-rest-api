@@ -11,7 +11,7 @@ const getCtrlParser = require('./getCtrlParser');
  */
 function getControl(device, control) {
     return new Promise((resolve, reject) => {
-        execute(`v4l2-ctl -d ${fs.realpathSync(device.replace('_', '/'))} --get-ctrl ${control}`)
+        execute(`v4l2-ctl -d ${fs.realpathSync(device.replace(/_/g, '/'))} --get-ctrl ${control}`)
             .then(output => {
                 if(output.stderr) {
                     return reject(data.stderr);
@@ -34,7 +34,7 @@ function getControl(device, control) {
  */
 function setControl(device, control, value) {
     return new Promise((resolve, reject) => {
-        return execute(`v4l2-ctl -d ${fs.realpathSync(device.replace('_', '/'))} --set-ctrl=${control}=${value}`)
+        return execute(`v4l2-ctl -d ${fs.realpathSync(device.replace(/_/g, '/'))} --set-ctrl=${control}=${value}`)
             .then(output => {
                 if(output.stderr) {
                     return reject(data.stderr);
