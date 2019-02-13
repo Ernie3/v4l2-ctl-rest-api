@@ -2,12 +2,10 @@
 RESTful API to control USB camera settings via v4l2-ctl.
 
 ## Installing
-```
-git clone https://github.com/Ernie3/v4l2-ctl-rest-api.git
-cd v4l2-ctl-rest-api
-npm install
-npm start
-```
+1. `git clone https://github.com/Ernie3/v4l2-ctl-rest-api.git`
+2. `cd v4l2-ctl-rest-api`
+3. `npm install`
+4. `npm start`
 
 ## How to Use this API
 All endpoints follow the structure `GET /{setting}/{devicePath}` or `POST /{setting}/{devicePath}/{value}`. You can also get the maximum and minimum values of a setting via `GET /{setting}/max_value` or `GET /{setting}/min_value`.
