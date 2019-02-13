@@ -6,7 +6,7 @@ const getCtrlParser = require('./getCtrlParser');
  * Gets the specified control for the device.
  * For example, to get the brightness for /dev/video0, you
  * would call: getControl(0, 'brightness').
- * @param {number} device the device path of the camera
+ * @param {string} device the device path of the camera
  * @param {string} control the control name
  */
 function getControl(device, control) {
@@ -27,7 +27,7 @@ function getControl(device, control) {
  * Sets the specified control value for the device.
  * For example, to set the brightness for /dev/video0 
  * to 140, you would call: setControl(0, 'brightness', 140).
- * @param {number} device the device path of the camera
+ * @param {string} device the device path of the camera
  * @param {string} control the control name
  * @param {number} value the desired value
  * @return the new setting for the device
