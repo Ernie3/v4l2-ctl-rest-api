@@ -9,15 +9,15 @@ const isByPath = config.by_path;
 function generateSettingRoute(name, min, max) {
     let router = express.Router();
 
-    router.get("/min_value", function(req, res) {
+    router.get(`/${name}/min_value`, function(req, res) {
         res.json({ min: min });
     });
     
-    router.get("/max_value", function(req, res) {
+    router.get(`/${name}/max_value`, function(req, res) {
         res.json({ max: max });
     });
     
-    router.post("/:device/:value", function(req, res) {
+    router.post(`/:device/${name}/:value`, function(req, res) {
         let device = req.params.device;
         let value = parseInt(req.params.value);
         let setFunction;
@@ -33,7 +33,7 @@ function generateSettingRoute(name, min, max) {
             .catch(error => res.status(500).json(error));
     });
     
-    router.get("/:device", function(req, res) {
+    router.get(`/:device/${name}`, function(req, res) {
         let device = req.params.device;
         let getFunction;
     

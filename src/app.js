@@ -19,12 +19,13 @@ const index = require('./routes/index');
 app.use('/', index);
 
 // TODO: make a route that dynamically determines the specific camera's 
-// settings by parsing v4l2-ctl -d <device> -l instead of this
+// settings by parsing v4l2-ctl -d <device> -l instead of using config.json
+// future implementation should be /<device>/settings
 const settings = require('./routes/settings');
 app.use('/settings', settings);
 
 for(let setting of require('./controls.json')) {
-    app.use('/' + setting.name, generateSettingRoute(setting.name, setting.min, setting.max));
+    app.use('/', generateSettingRoute(setting.name, setting.min, setting.max));
 }
 
 // error handler
