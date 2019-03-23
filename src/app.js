@@ -3,6 +3,7 @@ const express = require('express');
 const logger = require("morgan");
 const cors = require("cors");
 const bodyParser = require('body-parser');
+const generateSettingRoute = require('./lib/generateSettingRoute');
 
 const app = express();
 
@@ -17,29 +18,14 @@ app.use(bodyParser.json());
 const index = require('./routes/index');
 app.use('/', index);
 
-const shutdown = require('./routes/shutdown');
-app.use('/shutdown', shutdown);
-
+// TODO: make a route that dynamically determines the specific camera's 
+// settings by parsing v4l2-ctl -d <device> -l instead of this
 const settings = require('./routes/settings');
 app.use('/settings', settings);
 
-const brightness = require('./routes/brightness');
-app.use('/brightness', brightness);
-
-const contrast = require('./routes/contrast');
-app.use('/contrast', contrast);
-
-const exposure_absolute = require('./routes/exposure_absolute');
-app.use('/exposure_absolute', exposure_absolute);
-
-const exposure_auto = require('./routes/exposure_auto');
-app.use('/exposure_auto', exposure_auto);
-
-const saturation = require('./routes/saturation');
-app.use('/saturation', saturation);
-
-const sharpness = require('./routes/sharpness');
-app.use('/sharpness', sharpness);
+for(let setting of require('./controls.json')) {
+    app.use('/' + setting.name, generateSettingRoute(setting.name, setting.min, setting.max));
+}
 
 // error handler
 app.use(function(err, req, res, next) {
