@@ -14,7 +14,7 @@ All endpoints follow the structure `GET /{setting}/{deviceId}` or `POST /{settin
 You can get the currently supported settings using `GET /settings`. This will return all of the supported settings as an array of strings.
 
 ## Example
-If you have a USB device connected to `/dev/video0`, you can get its current brightness via `GET /brightness/0`, or set its brightness via `POST /brightness/0/130`. Or for example if you want to address a camera that is plugged into the top right USB port by its static path (by its USB port), you can `POST /brightness/dev_v4l_by-path_platform-3f980000.usb-usb-0:1.3:1.0-video-index0/130`
+If you have a USB device connected to `/dev/video0`, you can get its current brightness via `GET /brightness/0`, or set its brightness via `POST /brightness/0/130`. Or for example if you want to address a camera that is plugged into the top right USB port by its static path (by its USB port), flip the value for `by_path` in `config.json` then you can `POST /brightness/dev_v4l_by-path_platform-3f980000.usb-usb-0:1.3:1.0-video-index0/130`
 
 ## Setting up v4l2-ctl-rest-api to Run on Boot
 ```
