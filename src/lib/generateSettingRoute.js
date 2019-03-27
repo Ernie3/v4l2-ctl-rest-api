@@ -21,6 +21,11 @@ function generateSettingRoute(name, min, max) {
         let device = req.params.device;
         let value = parseInt(req.params.value);
         let setFunction;
+
+        // Validation
+        if(isNaN(value) || value < min || value > max) {
+            return res.status(500).send(`Value must be between ${min} and ${max}`);
+        }
     
         if(isByPath) {
             setFunction = v4l2ctl.setControlByPath(device, name, normalizeValue(value, min, max));
