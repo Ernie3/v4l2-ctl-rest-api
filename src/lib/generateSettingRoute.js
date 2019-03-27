@@ -24,7 +24,7 @@ function generateSettingRoute(name, min, max) {
 
         // Validation
         if(isNaN(value) || value < min || value > max) {
-            return res.status(500).send(`Value must be between ${min} and ${max}`);
+            return res.status(400).send(`Value must be between ${min} and ${max}`);
         }
     
         if(isByPath) {
