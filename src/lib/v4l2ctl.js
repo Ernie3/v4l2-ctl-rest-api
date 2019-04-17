@@ -25,12 +25,12 @@ function setControlCallback(output, control, value, resolve, reject) {
 
 /**
  * Gets the specified control for the device using by-path.
- * @param {string} device the static device path for the camera
+ * @param {string} portId the USB port ID
  * @param {string} control the control name
  */
-function getControlByPath(device, control) {
+function getControlByPath(portId, control) {
     return new Promise((resolve, reject) => {
-        execute(`v4l2-ctl -d ${fs.realpathSync(device.replace(/_/g, '/'))} --get-ctrl ${control}`)
+        execute(`v4l2-ctl -d /dev/v4l/by-path/platform-3f980000.usb-usb-0:${portId}:1.0-video-index0 --get-ctrl ${control}`)
             .then(output => getControlCallback(output, resolve, reject))
             .catch(error => reject(error));
     });
@@ -53,14 +53,14 @@ function getControl(deviceId, control) {
 
 /**
  * Sets the specified control value for the device using by-path.
- * @param {string} device the device path of the camera
+ * @param {string} portId the USB port ID
  * @param {string} control the control name
  * @param {number} value the desired value
  * @return the new setting for the device
  */
-function setControlByPath(device, control, value) {
+function setControlByPath(portId, control, value) {
     return new Promise((resolve, reject) => {
-        execute(`v4l2-ctl -d ${fs.realpathSync(device.replace(/_/g, '/'))} --set-ctrl=${control}=${value}`)
+        execute(`v4l2-ctl -d /dev/v4l/by-path/platform-3f980000.usb-usb-0:${portId}:1.0-video-index0 --set-ctrl=${control}=${value}`)
             .then(output => setControlCallback(output, control, value, resolve, reject))
             .catch(error => reject(error));
     });
